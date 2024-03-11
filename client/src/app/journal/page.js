@@ -63,11 +63,18 @@ function JournalGreeting(){
             <div className={styles.right_container}>
                 <textarea className={styles.textbox} placeholder="Spill your guts" rows="100" cols = "500"></textarea>
             </div>
+
             <div className={styles.arrows_right}>
                 <span class="material-symbols-outlined">
                     arrow_forward_ios
                 </span>
             </div>
+
+            <div className={styles.saveButton_container}>
+                <button className={styles.button}>Save!</button>
+            </div>
+
+
         </div>
         </div>
     )

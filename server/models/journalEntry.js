@@ -3,26 +3,22 @@ const mongoose = require('mongoose');
 const User = require('./userModel'); // Ensure the path is correct
 
 const journalEntrySchema = new mongoose.Schema({
-  title: {
+  prompt: {
     type: String,
     required: true,
     trim: true
   },
   content: {
     type: String,
-    required: true
+    required: true,
+    default: 'Nothing here!'
   },
-  createdAt: {
+  date: {
     type: Date,
-    default: Date.now
-  },
-  tags: [{
-    type: String,
-    trim: true
-  }],
-  category: {
-    type: String,
-    trim: true
+    default: function() {
+        const now = new Date()
+        return new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+    },
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,

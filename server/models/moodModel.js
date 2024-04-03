@@ -8,24 +8,19 @@ const moodSchema = new mongoose.Schema({
     ref: 'User', // This should match the model name exported in userModel.js
     required: true
   },
-  mood: {
-    type: String,
-    required: true,
-    enum: ['Happy', 'Sad', 'Anxious', 'Angry', 'Hopeful', 'Stressed', 'Calm', 'Tired'],
-  },
-  intensity: {
+  rating: {
     type: Number,
     required: true,
     min: 1,
     max: 10,
   },
-  note: {
-    type: String,
-    required: false,
-  },
   date: {
     type: Date,
-    default: Date.now,
+    default: function() {
+        const now = new Date()
+        return new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+    },
+    required: true
   }
 });
 

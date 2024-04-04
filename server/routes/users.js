@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET users listing. */
+/* GET user data. */
 router.get('/', async function(req, res, next) {
   try {
     if (!req.user) {
@@ -16,6 +16,7 @@ router.get('/', async function(req, res, next) {
 
     res.status(200).json({user});
   } catch (err) {
+    console.log("Error retrieving user data: ", err);
     res.status(500).json({message:'Internal Server Error'});
   }
 });

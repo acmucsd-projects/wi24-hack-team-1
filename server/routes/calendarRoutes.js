@@ -2,7 +2,7 @@ const express = require('express');
 const Mood = require('../models/moodModel');
 const router = express.Router();
 
-/* GET calendar moods. */
+/* GET calendar moods for a specified array of dates. */
 router.get('/calendar', async function(req, res, next) {
     try {
         if (!req.dates) {
@@ -33,6 +33,7 @@ router.get('/calendar', async function(req, res, next) {
       }
 });
 
+// Create/Update a Mood Rating for a specified date
 router.post('/rating', async function(req, res, next) {
     try {
         const {date, rating} = req.body;

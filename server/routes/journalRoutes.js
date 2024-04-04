@@ -32,8 +32,8 @@ router.get('/journal', async function(req, res, next) {
     }
 });
 
-
-router.post('journal', async function(req, res, next) {
+// Create/update a journal entry for a specified date
+router.post('/journal', async function(req, res, next) {
     try {
         const {prompt, content, date} = req.body;
         const userId = req.user._id;
